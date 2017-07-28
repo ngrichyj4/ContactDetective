@@ -10,7 +10,8 @@ module ContactDetective
   #gets all emails from a link
   def self.emails(link)
     text = ContactDetective::gethtmlfromlink(link)
-    text.scan(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]+/)
+    text.scan(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i)
+    # text.scan(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]+/)
   end
 
   def self.phonenumbers(link)
